@@ -378,7 +378,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       overflow: hidden;
       /* TROQUE AQUI: cole a URL da foto real da Andressa (Fundo do Hero) */
       background: linear-gradient(135deg, rgba(10, 12, 16, 0.94) 0%, rgba(10, 12, 16, 0.82) 50%, rgba(10, 12, 16, 0.93) 100%),
-                  url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat,
+                  url('https://github.com/djqweek/andressa-mattei-site/blob/2c8cbc290427e7126dad461b4d72f79c9a3c7c72/IMG-20260528-WA0012.jpg') center/cover no-repeat,
                   radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
                   var(--bg-dark);
     }
@@ -411,7 +411,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 3.5rem;
       align-items: center;
     }
@@ -507,95 +507,108 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       letter-spacing: 0.04em;
     }
 
-    /* Hero Visual Card */
-    .hero-visual-card {
+    /* Hero Main Image Column */
+    @keyframes heroImageEntry {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .hero-image-wrapper {
       position: relative;
-      background: linear-gradient(145deg, #161b24, #0f131a);
-      border: 1px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: heroImageEntry 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 4 / 5;
+      border-radius: 26px;
       overflow: hidden;
+      border: 2px solid rgba(236, 72, 153, 0.35);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(236, 72, 153, 0.2);
+      background: #11151e;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     }
 
-    .hero-visual-card::before {
-      content: '';
+    .hero-image-frame:hover {
+      transform: translateY(-4px) scale(1.01);
+      border-color: rgba(236, 72, 153, 0.6);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 45px rgba(236, 72, 153, 0.3);
+    }
+
+    .hero-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-img-overlay {
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 180px;
-      height: 180px;
-      background: var(--accent);
-      opacity: 0.08;
-      border-radius: 50%;
-      filter: blur(40px);
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 12, 16, 0.02) 0%, rgba(10, 12, 16, 0.15) 55%, rgba(10, 12, 16, 0.82) 100%);
+      pointer-events: none;
     }
 
-    .visual-quote-tag {
-      display: inline-block;
-      font-size: 0.75rem;
+    .hero-image-badge {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      right: 1.25rem;
+      background: rgba(14, 18, 26, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(236, 72, 153, 0.38);
+      border-radius: 16px;
+      padding: 0.85rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+      z-index: 2;
+    }
+
+    .hero-badge-info h4 {
+      font-size: 0.95rem;
       font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-badge-info p {
+      margin: 0;
+      font-size: 0.76rem;
       color: var(--accent-hover);
-      background: rgba(236, 72, 153, 0.12);
-      border: 1px solid rgba(236, 72, 153, 0.28);
-      border-radius: 6px;
-      padding: 0.25rem 0.6rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.08em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
-    .visual-quote-text {
-      font-size: 1.35rem;
-      font-weight: 600;
+    .hero-badge-tag {
+      background: var(--accent);
       color: #ffffff;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-
-    .visual-author {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .author-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #251e29;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 0.72rem;
       font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--accent-hover);
-      border: 2px solid rgba(236, 72, 153, 0.4);
-    }
-
-    .visual-features-list {
-      margin-top: 1.8rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .visual-feature-item {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.88rem;
-      color: var(--text-dim);
-    }
-
-    .feature-check {
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      letter-spacing: 0.06em;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 2px 10px rgba(236, 72, 153, 0.45);
     }
 
     /* Section Styles */
@@ -1704,39 +1717,24 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
         </div>
       </div>
 
-      <!-- Hero Visual Atmosphere Card -->
-      <div class="hero-visual-card">
-        <span class="visual-quote-tag">Filosofia de Treinamento</span>
-        <p class="visual-quote-text">
-          "O treino de hoje é o cuidado com o seu futuro. Construa a disciplina para colher a sua melhor versão."
-        </p>
-
-        <div class="visual-author">
-          <div class="author-avatar">AM</div>
-          <div>
-            <div style="font-weight: 700; color: #fff; font-size: 1rem;">Andressa Mattei</div>
-            <div style="font-size: 0.82rem; color: var(--accent);">Personal Trainer • Passo Fundo/RS</div>
-          </div>
-        </div>
-
-        <div class="visual-features-list">
-          <div class="visual-feature-item">
-            <span class="feature-check">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            </span>
-            <span>Periodização baseada em evidências científicas</span>
-          </div>
-          <div class="visual-feature-item">
-            <span class="feature-check">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            </span>
-            <span>Correção postural e de execução em cada repetição</span>
-          </div>
-          <div class="visual-feature-item">
-            <span class="feature-check">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            </span>
-            <span>Espaço exclusivo na parceira @lifepersonalfitness</span>
+      <!-- TROQUE AQUI: substitua por URL permanente da foto principal da Andressa quando hospedada no GitHub Pages -->
+      <div class="hero-image-wrapper">
+        <div class="hero-image-frame">
+          <img src="https://adapta-one-prod.s3.sa-east-1.amazonaws.com/dj.qweek%40gmail.com/jpg/IMG-20260528-WA0012.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3FLD6RMYLYFE2L2Q%2F20260910%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260910T040439Z&X-Amz-Expires=3600&X-Amz-Signature=bf37da7ac7933ee8fb35c69350e6e90fdd74fc9bef58ee38aa5261d3a3330659&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" 
+               alt="Andressa Mattei - Personal Trainer em estúdio de treino" 
+               class="hero-main-img"
+               fetchpriority="high">
+          <div class="hero-img-overlay"></div>
+          
+          <div class="hero-image-badge">
+            <div class="hero-badge-info">
+              <h4>
+                Andressa Mattei
+                <span class="dot" style="display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);"></span>
+              </h4>
+              <p>Personal Trainer • Passo Fundo/RS</p>
+            </div>
+            <span class="hero-badge-tag">Pós em Biomecânica</span>
           </div>
         </div>
       </div>
@@ -1748,9 +1746,9 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     <div class="about-grid">
       <div class="about-left-col">
         <div class="about-photo-card">
-          <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Foto Sobre) -->
-          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop" 
-               alt="Mulher treinando com halteres e orientação de postura" 
+          <!-- TROQUE AQUI: substitua por URL permanente da imagem quando hospedada no GitHub Pages -->
+          <img src="https://adapta-one-prod.s3.sa-east-1.amazonaws.com/dj.qweek%40gmail.com/jpg/IMG-20260528-WA0014.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3FLD6RMYLYFE2L2Q%2F20260910%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260910T041027Z&X-Amz-Expires=3600&X-Amz-Signature=581fcd7d40f71b00c5a1b2abdece0489d75cb0d10dde02e19ba5d88462e7a2d4&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" 
+               alt="Andressa orientando exercício de prancha lateral com elevação de perna na academia" 
                loading="lazy">
           <div class="about-photo-badge">
             <div style="display: flex; align-items: center; gap: 0.4rem;">
@@ -1852,10 +1850,10 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     <div class="services-grid">
       <!-- 1) Hipertrofia -->
       <div class="service-card">
-        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Hipertrofia) -->
+        <!-- TROQUE AQUI: substitua por URL permanente da imagem quando hospedada no GitHub Pages -->
         <div class="service-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" 
-               alt="Treino focado em hipertrofia com halteres na academia" 
+          <img src="https://adapta-one-prod.s3.sa-east-1.amazonaws.com/dj.qweek%40gmail.com/jpg/IMG-20260528-WA0023.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3FLD6RMYLYFE2L2Q%2F20260910%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260910T041027Z&X-Amz-Expires=3600&X-Amz-Signature=d5cac16925f8238bea15f8201a60cb70d902639a20a9f8ad785057cd1c4075f4&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" 
+               alt="Exercício de prancha com halteres (renegade row) com acompanhamento personalizado" 
                loading="lazy">
           <div class="service-img-overlay"></div>
         </div>
@@ -1880,10 +1878,10 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
       <!-- 2) Emagrecimento -->
       <div class="service-card">
-        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Emagrecimento) -->
+        <!-- TROQUE AQUI: substitua por URL permanente da imagem quando hospedada no GitHub Pages -->
         <div class="service-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" 
-               alt="Mulher praticando treino dinâmico e cardio focado em queima de gordura e definição" 
+          <img src="https://adapta-one-prod.s3.sa-east-1.amazonaws.com/dj.qweek%40gmail.com/jpg/IMG-20260528-WA0021.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3FLD6RMYLYFE2L2Q%2F20260910%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260910T041027Z&X-Amz-Expires=3600&X-Amz-Signature=9092961e49c857fe86887a2798ee5205e9c46e60563dde1008785f50cff7e552&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" 
+               alt="Levantamento terra com barra com supervisão da personal" 
                loading="lazy">
           <div class="service-img-overlay"></div>
         </div>
@@ -1908,10 +1906,10 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
       <!-- 3) Bem-Estar -->
       <div class="service-card">
-        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Bem-Estar) -->
+        <!-- TROQUE AQUI: substitua por URL permanente da imagem quando hospedada no GitHub Pages -->
         <div class="service-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" 
-               alt="Mulher alongando com corda para bem-estar e mobilidade funcional" 
+          <img src="https://adapta-one-prod.s3.sa-east-1.amazonaws.com/dj.qweek%40gmail.com/jpg/IMG-20260528-WA0020.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3FLD6RMYLYFE2L2Q%2F20260910%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260910T041027Z&X-Amz-Expires=3600&X-Amz-Signature=9393184698fc8a2f3c42b165a4d6080c82786bed36794a2bd01d35e1c6b1461c&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" 
+               alt="Treino de membros superiores com halteres na academia" 
                loading="lazy">
           <div class="service-img-overlay"></div>
         </div>
@@ -1936,7 +1934,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
       <!-- 4) Plano Personal VIP -->
       <div class="service-card featured">
-        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Plano Personal) -->
+        <!-- TROQUE AQUI: substitua pela foto real do acompanhamento do Plano Personal -->
         <div class="service-img-wrapper">
           <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop" 
                alt="Personal trainer prestando atendimento e acompanhamento individual ao aluno" 
@@ -1973,10 +1971,10 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     </div>
 
     <div class="benefits-container">
-      <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Imagem Lateral Benefícios) -->
+      <!-- TROQUE AQUI: substitua por URL permanente da imagem quando hospedada no GitHub Pages -->
       <div class="benefits-side-card">
-        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200&auto=format&fit=crop" 
-             alt="Mulher focada treinando força com dedicação na academia" 
+        <img src="https://adapta-one-prod.s3.sa-east-1.amazonaws.com/dj.qweek%40gmail.com/jpg/IMG-20260528-WA0017.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3FLD6RMYLYFE2L2Q%2F20260910%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260910T041027Z&X-Amz-Expires=3600&X-Amz-Signature=ba8442048e5645624802efef3650160eabbe36b30d9e499fa206c836b1420ec2&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" 
+             alt="Remada com halteres durante treino personalizado" 
              loading="lazy">
         <div class="benefits-side-overlay"></div>
         <div class="benefits-side-content">
