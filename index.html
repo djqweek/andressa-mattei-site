@@ -6,6 +6,9 @@
   <title>Andressa Mattei | Personal Trainer</title>
   <meta name="description" content="Personal Trainer em Passo Fundo/RS. Pós-graduada em Biomecânica e Fisiologia. Treino 100% individualizado, ciência do movimento e alta performance.">
   
+  <!-- Favicon Monograma AM Rosa -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23EC4899'/><text x='50%' y='64%' font-family='sans-serif' font-weight='800' font-size='42' fill='%23ffffff' text-anchor='middle' letter-spacing='-1'>AM</text></svg>">
+
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap">
   
@@ -126,10 +129,10 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
   <style>
     :root {
-      --accent: #a3e635;
-      --accent-hover: #bef264;
-      --accent-contrast: #0b1203;
-      --accent-glow: rgba(163, 230, 53, 0.18);
+      --accent: #EC4899;
+      --accent-hover: #F472B6;
+      --accent-contrast: #ffffff;
+      --accent-glow: rgba(236, 72, 153, 0.22);
       --bg-dark: #0a0c10;
       --surface-dark: #12161f;
       --surface-card: #181d28;
@@ -187,36 +190,65 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .brand-logo {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
       text-decoration: none;
-      line-height: 1.1;
+    }
+
+    .brand-monogram {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: -0.04em;
+      box-shadow: 0 4px 14px var(--accent-glow);
+      flex-shrink: 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .brand-logo:hover .brand-monogram {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(236, 72, 153, 0.45);
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
     }
 
     .brand-name {
       font-family: var(--font-display);
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       font-weight: 700;
       color: #ffffff;
       letter-spacing: -0.01em;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
 
     .brand-name span.dot {
       display: inline-block;
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       background: var(--accent);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent);
+      box-shadow: 0 0 8px var(--accent);
     }
 
     .brand-tag {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--accent);
+      color: var(--accent-hover);
       font-weight: 600;
     }
 
@@ -310,7 +342,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     .btn-brand:hover {
       background: var(--accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(163, 230, 53, 0.35);
+      box-shadow: 0 6px 24px rgba(236, 72, 153, 0.4);
     }
 
     .btn-outline-light {
@@ -347,7 +379,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       /* TROQUE AQUI: cole a URL da foto real da Andressa (Fundo do Hero) */
       background: linear-gradient(135deg, rgba(10, 12, 16, 0.94) 0%, rgba(10, 12, 16, 0.82) 50%, rgba(10, 12, 16, 0.93) 100%),
                   url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat,
-                  radial-gradient(circle at 80% 20%, rgba(163, 230, 53, 0.09) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
                   var(--bg-dark);
     }
 
@@ -367,7 +399,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       top: 15%;
       width: 480px;
       height: 480px;
-      background: radial-gradient(circle, rgba(163, 230, 53, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.16) 0%, transparent 70%);
       filter: blur(60px);
       pointer-events: none;
     }
@@ -389,12 +421,12 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       align-items: center;
       gap: 0.5rem;
       padding: 0.35rem 0.9rem;
-      background: rgba(163, 230, 53, 0.09);
-      border: 1px solid rgba(163, 230, 53, 0.28);
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.32);
       border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-hover);
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-bottom: 1.25rem;
@@ -503,9 +535,9 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--accent);
-      background: rgba(163, 230, 53, 0.12);
-      border: 1px solid rgba(163, 230, 53, 0.25);
+      color: var(--accent-hover);
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.28);
       border-radius: 6px;
       padding: 0.25rem 0.6rem;
       margin-bottom: 1.5rem;
@@ -532,14 +564,14 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: #252e3e;
+      background: #251e29;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
       font-size: 1.1rem;
-      color: var(--accent);
-      border: 2px solid rgba(163, 230, 53, 0.3);
+      color: var(--accent-hover);
+      border: 2px solid rgba(236, 72, 153, 0.4);
     }
 
     .visual-features-list {
@@ -650,17 +682,24 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       bottom: 1rem;
       left: 1rem;
       right: 1rem;
-      background: rgba(14, 18, 26, 0.88);
+      background: rgba(14, 18, 26, 0.92);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(163, 230, 53, 0.35);
+      border: 1px solid rgba(236, 72, 153, 0.4);
       border-radius: 12px;
-      padding: 0.65rem 0.85rem;
-      font-size: 0.8rem;
-      font-weight: 700;
+      padding: 0.75rem 0.95rem;
+      font-size: 0.82rem;
+      font-weight: 600;
       color: #ffffff;
       display: flex;
-      align-items: center;
-      gap: 0.45rem;
+      flex-direction: column;
+      gap: 0.25rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    .about-photo-badge .quote-phrase {
+      font-style: italic;
+      color: var(--accent-hover);
+      font-weight: 700;
     }
 
     .about-card-frame {
@@ -690,11 +729,11 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       gap: 0.4rem;
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-hover);
     }
 
     .bio-highlight-box {
-      background: rgba(163, 230, 53, 0.06);
+      background: rgba(236, 72, 153, 0.08);
       border-left: 3px solid var(--accent);
       padding: 1.15rem 1.25rem;
       border-radius: 0 12px 12px 0;
@@ -759,16 +798,16 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .about-highlight-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(163, 230, 53, 0.4);
+      border-color: rgba(236, 72, 153, 0.45);
     }
 
     .highlight-icon {
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: rgba(163, 230, 53, 0.12);
-      border: 1px solid rgba(163, 230, 53, 0.25);
-      color: var(--accent);
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.28);
+      color: var(--accent-hover);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -812,18 +851,19 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .service-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(163, 230, 53, 0.45);
+      border-color: rgba(236, 72, 153, 0.45);
       box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
     }
 
     .service-img-wrapper {
       position: relative;
       width: 100%;
-      height: 175px;
+      height: 185px;
       overflow: hidden;
       border-top-left-radius: 19px;
       border-top-right-radius: 19px;
       border-bottom: 1px solid var(--border-subtle);
+      background: #11151e;
     }
 
     .service-img-wrapper img {
@@ -841,7 +881,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     .service-img-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(14, 18, 25, 0.15) 0%, rgba(24, 29, 40, 0.85) 100%);
+      background: linear-gradient(180deg, rgba(14, 18, 25, 0.1) 0%, rgba(24, 29, 40, 0.85) 100%);
       pointer-events: none;
     }
 
@@ -855,7 +895,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .service-card.featured {
       background: linear-gradient(160deg, #1c2230 0%, #151923 100%);
-      border-color: rgba(163, 230, 53, 0.4);
+      border-color: rgba(236, 72, 153, 0.45);
     }
 
     .service-card.featured::after {
@@ -871,16 +911,16 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       color: var(--accent-contrast);
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35);
     }
 
     .service-icon-box {
       width: 46px;
       height: 46px;
       border-radius: 12px;
-      background: rgba(163, 230, 53, 0.1);
-      border: 1px solid rgba(163, 230, 53, 0.25);
-      color: var(--accent);
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.28);
+      color: var(--accent-hover);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1001,9 +1041,9 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--accent);
-      background: rgba(163, 230, 53, 0.12);
-      border: 1px solid rgba(163, 230, 53, 0.28);
+      color: var(--accent-hover);
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.3);
       padding: 0.3rem 0.65rem;
       border-radius: 6px;
       margin-bottom: 0.75rem;
@@ -1043,16 +1083,16 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .benefit-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(163, 230, 53, 0.35);
+      border-color: rgba(236, 72, 153, 0.4);
     }
 
     .benefit-number {
       font-family: var(--font-display);
       font-size: 1.35rem;
       font-weight: 800;
-      color: var(--accent);
-      background: rgba(163, 230, 53, 0.08);
-      border: 1px solid rgba(163, 230, 53, 0.2);
+      color: var(--accent-hover);
+      background: rgba(236, 72, 153, 0.1);
+      border: 1px solid rgba(236, 72, 153, 0.25);
       border-radius: 12px;
       width: 44px;
       height: 44px;
@@ -1075,6 +1115,8 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       margin: 0;
       line-height: 1.55;
     }
+
+
 
     /* INSPIRAÇÃO Section */
     .quotes-grid {
@@ -1100,7 +1142,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .quote-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(163, 230, 53, 0.4);
+      border-color: rgba(236, 72, 153, 0.4);
     }
 
     .quote-icon-mark {
@@ -1108,7 +1150,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       font-size: 3.5rem;
       line-height: 0.8;
       color: var(--accent);
-      opacity: 0.4;
+      opacity: 0.6;
       margin-bottom: 0.5rem;
       user-select: none;
     }
@@ -1125,7 +1167,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--accent);
+      color: var(--accent-hover);
       font-weight: 700;
       margin: 0;
     }
@@ -1138,7 +1180,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .main-testimonial-card {
       background: linear-gradient(135deg, #171d29 0%, #11151f 100%);
-      border: 1px solid rgba(163, 230, 53, 0.3);
+      border: 1px solid rgba(236, 72, 153, 0.35);
       border-radius: 24px;
       padding: 3rem 2.5rem;
       position: relative;
@@ -1153,7 +1195,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       font-family: Georgia, serif;
       font-size: 7rem;
       line-height: 1;
-      color: rgba(163, 230, 53, 0.12);
+      color: rgba(236, 72, 153, 0.12);
       pointer-events: none;
     }
 
@@ -1194,7 +1236,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       justify-content: center;
       font-weight: 700;
       font-size: 1rem;
-      border: 2px solid rgba(163, 230, 53, 0.4);
+      border: 2px solid rgba(236, 72, 153, 0.45);
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -1215,7 +1257,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
     .client-info span {
       font-size: 0.82rem;
-      color: var(--accent);
+      color: var(--accent-hover);
       font-weight: 600;
     }
 
@@ -1258,16 +1300,16 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     }
 
     .contact-item:hover {
-      border-color: rgba(163, 230, 53, 0.35);
+      border-color: rgba(236, 72, 153, 0.4);
     }
 
     .contact-icon {
       width: 46px;
       height: 46px;
       border-radius: 12px;
-      background: rgba(163, 230, 53, 0.1);
-      border: 1px solid rgba(163, 230, 53, 0.25);
-      color: var(--accent);
+      background: rgba(236, 72, 153, 0.12);
+      border: 1px solid rgba(236, 72, 153, 0.28);
+      color: var(--accent-hover);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1346,7 +1388,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     .form-control:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.15);
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2);
     }
 
     select.form-control {
@@ -1560,12 +1602,16 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
   <!-- FIXED NAVIGATION -->
   <header class="site-nav" id="mainNavbar">
     <div class="nav-inner">
+      <!-- TROQUE AQUI: substitua este logo tipográfico pela imagem oficial do logo quando tiver a URL hospedada -->
       <a href="#inicio" class="brand-logo" aria-label="Andressa Mattei Personal Trainer">
-        <span class="brand-name">
-          ANDRESSA MATTEI
-          <span class="dot"></span>
+        <span class="brand-monogram">AM</span>
+        <span class="brand-text-wrap">
+          <span class="brand-name">
+            Andressa Mattei
+            <span class="dot"></span>
+          </span>
+          <span class="brand-tag">PERSONAL TRAINER</span>
         </span>
-        <span class="brand-tag">PERSONAL TRAINER</span>
       </a>
 
       <!-- Desktop Links -->
@@ -1621,7 +1667,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
 
         <div class="hero-sub">Personal Trainer</div>
         <h1 class="hero-title">
-          Andressa <span class="accent-name">Mattei</span>
+          Andressa <span class="accent-name" style="color: var(--accent);">Mattei</span>
         </h1>
         <div class="hero-slogan">"Seja seu melhor."</div>
 
@@ -1701,14 +1747,17 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
   <section class="section-wrap section-darker" id="sobre">
     <div class="about-grid">
       <div class="about-left-col">
-        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Foto da Personal) -->
         <div class="about-photo-card">
+          <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Foto Sobre) -->
           <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop" 
-               alt="Personal trainer Andressa Mattei executando treino de força com halteres" 
+               alt="Mulher treinando com halteres e orientação de postura" 
                loading="lazy">
           <div class="about-photo-badge">
-            <svg width="15" height="15" fill="var(--accent)" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <span>Andressa Mattei • Personal</span>
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <svg width="14" height="14" fill="var(--accent)" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <span>Andressa Mattei • Personal Trainer</span>
+            </div>
+            <span class="quote-phrase">"Seja seu melhor."</span>
           </div>
         </div>
 
@@ -1834,7 +1883,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
         <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Emagrecimento) -->
         <div class="service-img-wrapper">
           <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" 
-               alt="Mulher realizando treino intenso de cardio e emagrecimento" 
+               alt="Mulher praticando treino dinâmico e cardio focado em queima de gordura e definição" 
                loading="lazy">
           <div class="service-img-overlay"></div>
         </div>
@@ -2036,7 +2085,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
         <p class="quote-author">— Andressa Mattei</p>
       </div>
 
-      <div class="quote-card" style="border-color: rgba(163, 230, 53, 0.35); background: linear-gradient(145deg, #18221b 0%, #101614 100%);">
+      <div class="quote-card" style="border-color: rgba(236, 72, 153, 0.35); background: linear-gradient(145deg, #22141d 0%, #171015 100%);">
         <div>
           <div class="quote-icon-mark" style="color: var(--accent);">“</div>
           <div class="quote-text" style="color: #ffffff; font-size: 1.35rem; font-weight: 700;">Seja seu melhor.</div>
@@ -2203,17 +2252,21 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <a href="#inicio" class="brand-logo" style="margin-bottom: 0.5rem;">
-          <span class="brand-name">
-            ANDRESSA MATTEI
-            <span class="dot"></span>
+        <!-- TROQUE AQUI: substitua este logo tipográfico pela imagem oficial do logo quando tiver a URL hospedada -->
+        <a href="#inicio" class="brand-logo" style="margin-bottom: 0.85rem;">
+          <span class="brand-monogram">AM</span>
+          <span class="brand-text-wrap">
+            <span class="brand-name">
+              Andressa Mattei
+              <span class="dot"></span>
+            </span>
+            <span class="brand-tag">PERSONAL TRAINER</span>
           </span>
-          <span class="brand-tag">PERSONAL TRAINER</span>
         </a>
         <p class="footer-desc">
           Pós-graduada em Biomecânica e Fisiologia. Treinamentos individualizados, baseados em ciência e focados na sua melhor versão em Passo Fundo/RS.
         </p>
-        <div style="font-size: 0.88rem; color: var(--accent); font-weight: 600;">
+        <div style="font-size: 0.88rem; color: var(--accent-hover); font-weight: 600;">
           "Seja seu melhor."
         </div>
       </div>
