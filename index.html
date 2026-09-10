@@ -344,8 +344,10 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       align-items: center;
       padding: 7.5rem 1.5rem 4rem;
       overflow: hidden;
-      background: radial-gradient(circle at 80% 20%, rgba(163, 230, 53, 0.09) 0%, transparent 50%),
-                  radial-gradient(circle at 20% 80%, rgba(30, 41, 59, 0.45) 0%, transparent 60%),
+      /* TROQUE AQUI: cole a URL da foto real da Andressa (Fundo do Hero) */
+      background: linear-gradient(135deg, rgba(10, 12, 16, 0.94) 0%, rgba(10, 12, 16, 0.82) 50%, rgba(10, 12, 16, 0.93) 100%),
+                  url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat,
+                  radial-gradient(circle at 80% 20%, rgba(163, 230, 53, 0.09) 0%, transparent 50%),
                   var(--bg-dark);
     }
 
@@ -610,18 +612,67 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       max-width: 1160px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5rem;
+      align-items: stretch;
+    }
+
+    .about-left-col {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .about-photo-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      min-height: 380px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .about-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .about-photo-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .about-photo-badge {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      background: rgba(14, 18, 26, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(163, 230, 53, 0.35);
+      border-radius: 12px;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
       align-items: center;
+      gap: 0.45rem;
     }
 
     .about-card-frame {
       background: linear-gradient(135deg, #171c26 0%, #10141c 100%);
       border: 1px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 2.25rem;
+      border-radius: 20px;
+      padding: 2rem;
       position: relative;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .about-pill-header {
@@ -750,7 +801,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       background: var(--surface-card);
       border: 1px solid var(--border-subtle);
       border-radius: 20px;
-      padding: 2rem 1.75rem;
+      padding: 0 0 1.75rem 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -765,6 +816,43 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
     }
 
+    .service-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 175px;
+      overflow: hidden;
+      border-top-left-radius: 19px;
+      border-top-right-radius: 19px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .service-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .service-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(14, 18, 25, 0.15) 0%, rgba(24, 29, 40, 0.85) 100%);
+      pointer-events: none;
+    }
+
+    .service-body {
+      padding: 1.5rem 1.6rem 0;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
     .service-card.featured {
       background: linear-gradient(160deg, #1c2230 0%, #151923 100%);
       border-color: rgba(163, 230, 53, 0.4);
@@ -775,26 +863,28 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       position: absolute;
       top: 1rem;
       right: 1.25rem;
+      z-index: 2;
       font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       background: var(--accent);
       color: var(--accent-contrast);
-      padding: 0.2rem 0.65rem;
+      padding: 0.25rem 0.7rem;
       border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
     .service-icon-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
       background: rgba(163, 230, 53, 0.1);
       border: 1px solid rgba(163, 230, 53, 0.25);
       color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .service-title {
@@ -856,12 +946,88 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     }
 
     /* BENEFÍCIOS Section */
-    .benefits-grid {
+    .benefits-container {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 360px 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .benefits-side-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      min-height: 440px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem 1.75rem;
+    }
+
+    .benefits-side-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      z-index: 0;
+    }
+
+    .benefits-side-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .benefits-side-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 12, 16, 0.15) 0%, rgba(10, 12, 16, 0.88) 65%, rgba(10, 12, 16, 0.98) 100%);
+      z-index: 1;
+    }
+
+    .benefits-side-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .benefits-side-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: rgba(163, 230, 53, 0.12);
+      border: 1px solid rgba(163, 230, 53, 0.28);
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+
+    .benefits-side-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefits-side-desc {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
     }
 
     .benefit-card {
@@ -1018,8 +1184,8 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     }
 
     .client-avatar {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: #232c3d;
       color: var(--accent);
@@ -1028,7 +1194,16 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       justify-content: center;
       font-weight: 700;
       font-size: 1rem;
-      border: 1px solid rgba(163, 230, 53, 0.3);
+      border: 2px solid rgba(163, 230, 53, 0.4);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .client-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .client-info h5 {
@@ -1045,6 +1220,15 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     }
 
     /* CONTATO Section */
+    .section-contact-bg {
+      position: relative;
+      /* TROQUE AQUI: cole a URL da foto real da Andressa (Fundo da Seção de Contato) */
+      background: linear-gradient(180deg, rgba(10, 12, 16, 0.94) 0%, rgba(10, 12, 16, 0.88) 50%, rgba(10, 12, 16, 0.97) 100%),
+                  url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat,
+                  var(--bg-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
     .contact-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -1052,6 +1236,8 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       grid-template-columns: 1fr 1.1fr;
       gap: 3.5rem;
       align-items: flex-start;
+      position: relative;
+      z-index: 1;
     }
 
     .contact-info-panel {
@@ -1287,12 +1473,31 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
+      .about-left-col {
+        grid-template-columns: 1fr;
+      }
+      .about-photo-card {
+        min-height: 280px;
+        max-height: 340px;
+      }
+      .benefits-container {
+        grid-template-columns: 1fr;
+      }
+      .benefits-side-card {
+        min-height: 260px;
+      }
       .contact-container {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
       .footer-inner {
         grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1495,40 +1700,55 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
   <!-- SOBRE SECTION -->
   <section class="section-wrap section-darker" id="sobre">
     <div class="about-grid">
-      <div class="about-card-frame">
-        <div class="about-pill-header">
-          <span class="about-location-badge">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            Passo Fundo / RS
-          </span>
-          <span style="font-size: 0.8rem; color: var(--text-dim);">CREF Ativo</span>
-        </div>
-
-        <div class="bio-highlight-box">
-          <div class="bio-highlight-text">
-            "Te ajudo a buscar a sua MELHOR VERSÃO!"
-          </div>
-          <div style="font-size: 0.88rem; color: var(--accent); margin-top: 0.35rem; font-weight: 600;">
-            Apaixonada pelo que faz <span class="bio-leaf">🍃</span>
+      <div class="about-left-col">
+        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Foto da Personal) -->
+        <div class="about-photo-card">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop" 
+               alt="Personal trainer Andressa Mattei executando treino de força com halteres" 
+               loading="lazy">
+          <div class="about-photo-badge">
+            <svg width="15" height="15" fill="var(--accent)" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <span>Andressa Mattei • Personal</span>
           </div>
         </div>
 
-        <p class="about-p">
-          Pós-graduada em <strong>Biomecânica e Fisiologia</strong>, une ciência e movimento para entregar treinos personalizados de alta performance. O caminho mais seguro e eficiente para alcançar os seus objetivos de saúde e estética.
-        </p>
+        <div class="about-card-frame">
+          <div>
+            <div class="about-pill-header">
+              <span class="about-location-badge">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Passo Fundo / RS
+              </span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">CREF Ativo</span>
+            </div>
 
-        <p class="about-p" style="margin-bottom: 0;">
-          Com acompanhamento atento a cada detalhe, você aprende a executar os movimentos com perfeição motora, prevenindo lesões e acelerando o ganho de resultados sustentáveis.
-        </p>
+            <div class="bio-highlight-box">
+              <div class="bio-highlight-text">
+                "Te ajudo a buscar a sua MELHOR VERSÃO!"
+              </div>
+              <div style="font-size: 0.88rem; color: var(--accent); margin-top: 0.35rem; font-weight: 600;">
+                Apaixonada pelo que faz <span class="bio-leaf">🍃</span>
+              </div>
+            </div>
 
-        <div class="about-tags">
-          <span class="skill-tag">Biomecânica Clínica</span>
-          <span class="skill-tag">Fisiologia do Exercício</span>
-          <span class="skill-tag">Treino Personalizado</span>
-          <span class="skill-tag">Prescrição Individual</span>
+            <p class="about-p">
+              Pós-graduada em <strong>Biomecânica e Fisiologia</strong>, une ciência e movimento para entregar treinos personalizados de alta performance. O caminho mais seguro e eficiente para alcançar os seus objetivos de saúde e estética.
+            </p>
+
+            <p class="about-p" style="margin-bottom: 0;">
+              Com acompanhamento atento a cada detalhe, você aprende a executar os movimentos com perfeição motora, prevenindo lesões e acelerando o ganho de resultados sustentáveis.
+            </p>
+          </div>
+
+          <div class="about-tags">
+            <span class="skill-tag">Biomecânica Clínica</span>
+            <span class="skill-tag">Fisiologia do Exercício</span>
+            <span class="skill-tag">Treino Personalizado</span>
+            <span class="skill-tag">Prescrição Individual</span>
+          </div>
         </div>
       </div>
 
@@ -1583,78 +1803,114 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
     <div class="services-grid">
       <!-- 1) Hipertrofia -->
       <div class="service-card">
-        <div>
-          <div class="service-icon-box">
-            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 9v6m12-6v6M3 11v2m18-2v2M6 12h12"></path>
-            </svg>
-          </div>
-          <h3 class="service-title">Hipertrofia</h3>
-          <p class="service-desc">Ganho de massa muscular com periodização baseada em ciência, sobrecarga progressiva estruturada e estímulo hipertrófico exato para o seu perfil.</p>
-          <ul class="service-perks">
-            <li>Volume e intensidade calibrados</li>
-            <li>Progressão contínua de cargas</li>
-            <li>Otimização da resposta hormonal</li>
-          </ul>
+        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Hipertrofia) -->
+        <div class="service-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" 
+               alt="Treino focado em hipertrofia com halteres na academia" 
+               loading="lazy">
+          <div class="service-img-overlay"></div>
         </div>
-        <a href="#contato" class="service-btn" onclick="selectServiceObjective('Hipertrofia')">Quero Hipertrofia</a>
+        <div class="service-body">
+          <div>
+            <div class="service-icon-box">
+              <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9v6m12-6v6M3 11v2m18-2v2M6 12h12"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Hipertrofia</h3>
+            <p class="service-desc">Ganho de massa muscular com periodização baseada em ciência, sobrecarga progressiva estruturada e estímulo hipertrófico exato para o seu perfil.</p>
+            <ul class="service-perks">
+              <li>Volume e intensidade calibrados</li>
+              <li>Progressão contínua de cargas</li>
+              <li>Otimização da resposta hormonal</li>
+            </ul>
+          </div>
+          <a href="#contato" class="service-btn" onclick="selectServiceObjective('Hipertrofia')">Quero Hipertrofia</a>
+        </div>
       </div>
 
       <!-- 2) Emagrecimento -->
       <div class="service-card">
-        <div>
-          <div class="service-icon-box">
-            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="service-title">Emagrecimento</h3>
-          <p class="service-desc">Estratégia segura e eficiente para queimar gordura preservando saúde, mantendo sua massa magra ativa e acelerando o gasto calórico diário.</p>
-          <ul class="service-perks">
-            <li>Déficit calórico inteligente com musculação</li>
-            <li>Preservação do tônus e firmeza</li>
-            <li>Metabolismo ativo no pós-treino</li>
-          </ul>
+        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Emagrecimento) -->
+        <div class="service-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" 
+               alt="Mulher realizando treino intenso de cardio e emagrecimento" 
+               loading="lazy">
+          <div class="service-img-overlay"></div>
         </div>
-        <a href="#contato" class="service-btn" onclick="selectServiceObjective('Emagrecimento')">Quero Emagrecer</a>
+        <div class="service-body">
+          <div>
+            <div class="service-icon-box">
+              <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Emagrecimento</h3>
+            <p class="service-desc">Estratégia segura e eficiente para queimar gordura preservando saúde, mantendo sua massa magra ativa e acelerando o gasto calórico diário.</p>
+            <ul class="service-perks">
+              <li>Déficit calórico inteligente com musculação</li>
+              <li>Preservação do tônus e firmeza</li>
+              <li>Metabolismo ativo no pós-treino</li>
+            </ul>
+          </div>
+          <a href="#contato" class="service-btn" onclick="selectServiceObjective('Emagrecimento')">Quero Emagrecer</a>
+        </div>
       </div>
 
       <!-- 3) Bem-Estar -->
       <div class="service-card">
-        <div>
-          <div class="service-icon-box">
-            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
-          </div>
-          <h3 class="service-title">Bem-Estar</h3>
-          <p class="service-desc">Treinos que unem corpo e mente, melhorando disposição, alívio do estresse diário, qualidade de sono e longevidade funcional.</p>
-          <ul class="service-perks">
-            <li>Melhora da saúde mental e ânimo</li>
-            <li>Mobilidade e alívio de dores corporais</li>
-            <li>Mais energia para sua rotina</li>
-          </ul>
+        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Bem-Estar) -->
+        <div class="service-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" 
+               alt="Mulher alongando com corda para bem-estar e mobilidade funcional" 
+               loading="lazy">
+          <div class="service-img-overlay"></div>
         </div>
-        <a href="#contato" class="service-btn" onclick="selectServiceObjective('Bem-Estar')">Quero Bem-Estar</a>
+        <div class="service-body">
+          <div>
+            <div class="service-icon-box">
+              <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Bem-Estar</h3>
+            <p class="service-desc">Treinos que unem corpo e mente, melhorando disposição, alívio do estresse diário, qualidade de sono e longevidade funcional.</p>
+            <ul class="service-perks">
+              <li>Melhora da saúde mental e ânimo</li>
+              <li>Mobilidade e alívio de dores corporais</li>
+              <li>Mais energia para sua rotina</li>
+            </ul>
+          </div>
+          <a href="#contato" class="service-btn" onclick="selectServiceObjective('Bem-Estar')">Quero Bem-Estar</a>
+        </div>
       </div>
 
       <!-- 4) Plano Personal VIP -->
       <div class="service-card featured">
-        <div>
-          <div class="service-icon-box">
-            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-            </svg>
-          </div>
-          <h3 class="service-title">Plano Personal</h3>
-          <p class="service-desc">Cada aula 100% acompanhada, treino personalizado para cada aluno, tudo pensado para você, com acompanhamento contínuo da personal trainer.</p>
-          <ul class="service-perks">
-            <li>Presença e correção em 100% das repetições</li>
-            <li>Ajustes semanais com base em resposta</li>
-            <li>Horário reservado com exclusividade</li>
-          </ul>
+        <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Serviço Plano Personal) -->
+        <div class="service-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop" 
+               alt="Personal trainer prestando atendimento e acompanhamento individual ao aluno" 
+               loading="lazy">
+          <div class="service-img-overlay"></div>
         </div>
-        <a href="#contato" class="btn-brand" style="width: 100%; border-radius: 12px; font-size: 0.9rem; padding: 0.75rem;" onclick="selectServiceObjective('Plano Personal')">Garantir Meu Horário</a>
+        <div class="service-body">
+          <div>
+            <div class="service-icon-box">
+              <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Plano Personal</h3>
+            <p class="service-desc">Cada aula 100% acompanhada, treino personalizado para cada aluno, tudo pensado para você, com acompanhamento contínuo da personal trainer.</p>
+            <ul class="service-perks">
+              <li>Presença e correção em 100% das repetições</li>
+              <li>Ajustes semanais com base em resposta</li>
+              <li>Horário reservado com exclusividade</li>
+            </ul>
+          </div>
+          <a href="#contato" class="btn-brand" style="width: 100%; border-radius: 12px; font-size: 0.9rem; padding: 0.75rem;" onclick="selectServiceObjective('Plano Personal')">Garantir Meu Horário</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1667,58 +1923,73 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
       <p class="section-desc">Uma metodologia que substitui a tentativa e erro pela precisão biomecânica e o cuidado humano.</p>
     </div>
 
-    <div class="benefits-grid">
-      <!-- 1 -->
-      <div class="benefit-card">
-        <div class="benefit-number">01</div>
-        <div class="benefit-body">
-          <h4>Treino 100% Personalizado e Acompanhado</h4>
-          <p>Não há fichas genéricas. Cada série, repetição e intervalo é dimensionado especificamente para seu biotipo, histórico e ritmo.</p>
+    <div class="benefits-container">
+      <!-- TROQUE AQUI: cole a URL da foto real da Andressa (Imagem Lateral Benefícios) -->
+      <div class="benefits-side-card">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200&auto=format&fit=crop" 
+             alt="Mulher focada treinando força com dedicação na academia" 
+             loading="lazy">
+        <div class="benefits-side-overlay"></div>
+        <div class="benefits-side-content">
+          <span class="benefits-side-badge">Metodologia Exclusiva</span>
+          <div class="benefits-side-title">Foco, Precisão e Resultados Reais</div>
+          <p class="benefits-side-desc">A união perfeita entre ciência do movimento e atenção dedicada em cada etapa da sua evolução.</p>
         </div>
       </div>
 
-      <!-- 2 -->
-      <div class="benefit-card">
-        <div class="benefit-number">02</div>
-        <div class="benefit-body">
-          <h4>Ciência Aplicada (Biomecânica e Fisiologia)</h4>
-          <p>Conhecimento aprofundado para garantir o máximo rendimento muscular com segurança articular absoluta, evitando dores crônicas.</p>
+      <div class="benefits-grid">
+        <!-- 1 -->
+        <div class="benefit-card">
+          <div class="benefit-number">01</div>
+          <div class="benefit-body">
+            <h4>Treino 100% Personalizado e Acompanhado</h4>
+            <p>Não há fichas genéricas. Cada série, repetição e intervalo é dimensionado especificamente para seu biotipo, histórico e ritmo.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- 3 -->
-      <div class="benefit-card">
-        <div class="benefit-number">03</div>
-        <div class="benefit-body">
-          <h4>Correção de Execução em Cada Exercício</h4>
-          <p>Olhar clínico durante todo o treino. Ajuste de alinhamentos, cadência e respiração para extrair o estímulo correto da fibra muscular.</p>
+        <!-- 2 -->
+        <div class="benefit-card">
+          <div class="benefit-number">02</div>
+          <div class="benefit-body">
+            <h4>Ciência Aplicada (Biomecânica e Fisiologia)</h4>
+            <p>Conhecimento aprofundado para garantir o máximo rendimento muscular com segurança articular absoluta, evitando dores crônicas.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- 4 -->
-      <div class="benefit-card">
-        <div class="benefit-number">04</div>
-        <div class="benefit-body">
-          <h4>Evolução Medida e Ajustada Continuamente</h4>
-          <p>Avaliações periódicas e reavaliações do planejamento para garantir que o seu corpo nunca estacione e os resultados continuem surgindo.</p>
+        <!-- 3 -->
+        <div class="benefit-card">
+          <div class="benefit-number">03</div>
+          <div class="benefit-body">
+            <h4>Correção de Execução em Cada Exercício</h4>
+            <p>Olhar clínico durante todo o treino. Ajuste de alinhamentos, cadência e respiração para extrair o estímulo correto da fibra muscular.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- 5 -->
-      <div class="benefit-card">
-        <div class="benefit-number">05</div>
-        <div class="benefit-body">
-          <h4>Flexibilidade com Horário Marcado</h4>
-          <p>Seu tempo é precioso. Treinos com hora agendada garantem consistência e compromisso com a sua saúde sem desperdício de tempo.</p>
+        <!-- 4 -->
+        <div class="benefit-card">
+          <div class="benefit-number">04</div>
+          <div class="benefit-body">
+            <h4>Evolução Medida e Ajustada Continuamente</h4>
+            <p>Avaliações periódicas e reavaliações do planejamento para garantir que o seu corpo nunca estacione e os resultados continuem surgindo.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- 6 -->
-      <div class="benefit-card">
-        <div class="benefit-number">06</div>
-        <div class="benefit-body">
-          <h4>Motivação e Disciplina Constantes</h4>
-          <p>Um suporte diário que não te deixa desistir. Transformamos o treino em um momento de prazer, superação e autocuidado.</p>
+        <!-- 5 -->
+        <div class="benefit-card">
+          <div class="benefit-number">05</div>
+          <div class="benefit-body">
+            <h4>Flexibilidade com Horário Marcado</h4>
+            <p>Seu tempo é precioso. Treinos com hora agendada garantem consistência e compromisso com a sua saúde sem desperdício de tempo.</p>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="benefit-card">
+          <div class="benefit-number">06</div>
+          <div class="benefit-body">
+            <h4>Motivação e Disciplina Constantes</h4>
+            <p>Um suporte diário que não te deixa desistir. Transformamos o treino em um momento de prazer, superação e autocuidado.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1792,7 +2063,12 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
           "A Andressa é uma maravilha. Ela é competente, exigente — e cada aula é acompanhada de perto, com treino personalizado e horário marcado."
         </blockquote>
         <div class="testimonial-footer">
-          <div class="client-avatar">AL</div>
+          <!-- TROQUE AQUI: cole a URL da foto real da aluna da Andressa (Avatar Depoimento) -->
+          <div class="client-avatar">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop" 
+                 alt="Foto da aluna satisfeita com os treinos da Andressa Mattei" 
+                 loading="lazy">
+          </div>
           <div class="client-info">
             <h5>Aluna</h5>
             <span>Treino Personalizado • Passo Fundo/RS</span>
@@ -1803,7 +2079,7 @@ table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 
   </section>
 
   <!-- CONTATO SECTION -->
-  <section class="section-wrap" id="contato">
+  <section class="section-wrap section-contact-bg" id="contato">
     <div class="section-header">
       <span class="section-kicker">Primeiro Passo</span>
       <h2 class="section-title">Inicie Sua Transformação</h2>
